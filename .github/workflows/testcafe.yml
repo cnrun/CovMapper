@@ -61,7 +61,16 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: dist
+    - name: Install TestCafe BrowserStack plugin
+      run: npm install testcafe-browser-provider-browserstack
     - name: install testcafe
       run: yarn add http-server testcafe
+    - name: 'BrowserStack Env Setup'
+      uses: 'browserstack/github-actions/setup-env@master'
+      with:
+        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+        access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+        build-name: 'covmapperpr${{ github.event.pull_request.number }}'
+        project-name: 'CovMap'
     - name: test
-      run: yarn run testcafe chrome:headless tests/testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
+      run: yarn run testcafe 'browserstack:chrome@84.0:Windows 10' tests/testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
