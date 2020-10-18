@@ -36,6 +36,7 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "testcafe": "^1.9.4",
     "webpack-merge": "^4.2.2",
     "workbox-webpack-plugin": "3.6.3"
   },

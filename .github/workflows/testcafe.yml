@@ -1,0 +1,74 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: testcafe CI
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '.github/**'
+      - '.hosting/**'
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+      - '.github/**'
+      - '.hosting/**'
+
+env:
+  RESSOURCE_GROUP: covmapper
+  STORAGE_NAME: covmapperpr${{ github.event.pull_request.number }}
+
+jobs:
+  build-head:
+    name: 'Build head'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: '${{github.event.pull_request.head.ref}}'
+        repository: '${{github.event.pull_request.head.repo.full_name}}'
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - uses: actions/cache@v2
+      id: yarn-cache
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+    - name: Install dependencies
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: yarn install
+    - name: Build
+      run: yarn build
+    - name: Upload bundle-stats.json
+      uses: actions/upload-artifact@v1
+      with:
+        name: head-stats
+        path: ./bundle-stats.json
+    - name: Upload dist
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: ./dist
+
+  e2e-test:
+    name: "E2E Tests"
+    runs-on: ubuntu-latest
+    needs: [build-head]
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: '${{github.event.pull_request.head.ref}}'
+        repository: '${{github.event.pull_request.head.repo.full_name}}'
+    - name: remove unneeded files
+      run: rm package.json
+    - name: Download base artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: dist
+    - name: install testcafe
+      run: yarn add http-server testcafe
+    - name: test
+      run: yarn run tests/testcafe chrome:headless testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
