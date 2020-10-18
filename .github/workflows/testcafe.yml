@@ -64,7 +64,7 @@ jobs:
     - name: Install TestCafe BrowserStack plugin
       run: npm install testcafe-browser-provider-browserstack && npm install browserstack
     - name: install testcafe
-      run: yarn add http-server testcafe
+      run: yarn add http-server testcafe testcafe-browser-provider-browserstack browserstack
     - name: 'BrowserStack Env Setup'
       uses: 'browserstack/github-actions/setup-env@master'
       with:
