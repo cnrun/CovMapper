@@ -11,7 +11,6 @@ test("Finish intro screens", async (t) => {
   const titleForIntro3 = "Was zeigt mir die CovMap an?";
   const titleTextForPostalCode = "Für Dein regionales Risiko brauchen wir noch die Postleitzahl Deines Wohnortes";
 
-  await t.expect(websiteText).contains("Lade Daten");
   await t.wait(20000).expect(websiteText).contains(titleForIntro1).click(nextButton);
   await t.expect(websiteText).contains(titleForIntro2).click(nextButton);
   await t.expect(websiteText).contains(titleForIntro3).click(nextButton);
