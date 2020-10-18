@@ -40,6 +40,11 @@ jobs:
       run: yarn install
     - name: Build
       run: yarn build
+    - name: Upload dist
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: ./dist
 
   e2e-test:
     name: "E2E Tests"
