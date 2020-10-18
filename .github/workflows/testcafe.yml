@@ -65,6 +65,8 @@ jobs:
       run: npm install testcafe-browser-provider-browserstack && npm install browserstack
     - name: install testcafe
       run: yarn add http-server testcafe
+    - name: check supported browsers
+      run: testcafe -b browserstack
     - name: 'BrowserStack Env Setup'
       uses: 'browserstack/github-actions/setup-env@master'
       with:
