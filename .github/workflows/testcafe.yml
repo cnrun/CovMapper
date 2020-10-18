@@ -75,4 +75,4 @@ jobs:
         build-name: 'covmapperpr${{ github.event.pull_request.number }}'
         project-name: 'CovMap'
     - name: test
-      run: yarn run testcafe 'browserstack:chrome@84.0:Windows 10' tests/testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
+      run: yarn run testcafe 'browserstack:chrome:Windows 10' tests/testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
