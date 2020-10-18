@@ -64,4 +64,4 @@ jobs:
     - name: install testcafe
       run: yarn add http-server testcafe
     - name: test
-      run: yarn run tests/testcafe chrome:headless testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
+      run: yarn run testcafe chrome:headless testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
