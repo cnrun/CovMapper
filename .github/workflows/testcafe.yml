@@ -42,11 +42,6 @@ jobs:
       run: yarn install
     - name: Build
       run: yarn build
-    - name: Upload bundle-stats.json
-      uses: actions/upload-artifact@v1
-      with:
-        name: head-stats
-        path: ./bundle-stats.json
 
   e2e-test:
     name: "E2E Tests"
