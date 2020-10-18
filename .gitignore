@@ -13,3 +13,6 @@ bundle-stats.json
 
 # CovQuestions is automatically cloned in by the npm postinstall script
 CovQuestions/
+tests/dotnet/selenium/CovMap/[Bb]in/
+tests/dotnet/selenium/CovMap/[Oo]bj/
+tests/dotnet/selenium/CovMap/[Oo]ut/
