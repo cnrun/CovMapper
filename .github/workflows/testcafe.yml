@@ -61,8 +61,6 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: dist
-    - name: Install TestCafe BrowserStack plugin
-      run: npm install testcafe-browser-provider-browserstack
     - name: install testcafe
       run: yarn add http-server testcafe testcafe-browser-provider-browserstack
     - name: 'BrowserStack Env Setup'
