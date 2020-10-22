@@ -102,6 +102,7 @@ jobs:
     - name: test
       run: |
         yarn run testcafe 'browserstack:chrome:Windows 10' testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
+        yarn run testcafe 'browserstack:firefox:Windows 10' testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
       with:
