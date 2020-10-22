@@ -103,10 +103,19 @@ jobs:
         local-identifier: random
     - name: test
       run: |
-        cd ./dist
-        yarn run http-server -p 8080 &
-        cd ..
-        yarn run testcafe "browserstack:chrome:Windows 10","browserstack:firefox:Windows 10" testcafe/*.spec.ts
+        yarn run testcafe "browserstack:chrome:Windows 10","browserstack:firefox:Windows 10" testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
+    - name: 'BrowserStackLocal Stop'
+      uses: 'browserstack/github-actions/setup-local@master'
+      with:
+        local-testing: stop
+    - name: 'BrowserStackLocal Setup'
+      uses: 'browserstack/github-actions/setup-local@master'
+      with:
+        local-testing: start
+        local-identifier: random
+    - name: test 2
+      run: |
+        yarn run testcafe "browserstack:iPad Air 2","browserstack:Sony Xperia X10" testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
       with:
