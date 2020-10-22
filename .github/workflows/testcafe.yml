@@ -83,6 +83,8 @@ jobs:
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install
+    - name: install testcafe
+      run: yarn add http-server testcafe testcafe-browser-provider-browserstack
     - name: Download base artifact
       uses: actions/download-artifact@v1
       with:
