@@ -1,4 +1,5 @@
 node_modules
+package-lock.json
 dist
 bundle-report.html
 bundle-stats.json
@@ -15,4 +16,6 @@ bundle-stats.json
 CovQuestions/
 
 .env
+static/changelog.md
+package-lock.json
 hosting/data
