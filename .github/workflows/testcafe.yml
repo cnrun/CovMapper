@@ -83,7 +83,7 @@ jobs:
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install
-    - name: install testcafe
+    - name: install testcafe & browserstack
       run: yarn add http-server testcafe testcafe-browser-provider-browserstack
     - name: Download base artifact
       uses: actions/download-artifact@v1
@@ -110,7 +110,7 @@ jobs:
         curl http://localhost:8080
         yarn run testcafe -c 1 "browserstack:chrome:Windows 10" testcafe/*.spec.ts
         yarn run testcafe -c 1 "browserstack:chrome:Windows 10" testcafe/*.spec.ts
-        yarn run testcafe -c 1 "browserstack:safari:OS X Catalina" testcafe/*.spec.ts
+        yarn run testcafe -c 1 "browserstack:safari:OS X Catalina" testcafe/*.spec.ts --skip-js-errors
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
       with:
