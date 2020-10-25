@@ -103,8 +103,11 @@ jobs:
         local-identifier: random
     # https://markus.oberlehner.net/blog/dealing-with-the-browserstack-parallel-test-limit-when-using-testcafe/ http-server
     # https://github.com/DevExpress/testcafe/issues/1330 Browser List
+    # https://www.npmjs.com/package/testcafe-browser-provider-browserstack testcafe doc
     - name: test chrome
       run: |
+        export BROWSERSTACK_USE_AUTOMATE="1"
+        export BROWSERSTACK_DISPLAY_RESOLUTION="1024x768"
         yarn run http-server dist/ -p 8080 -s &
         sleep 10
         curl http://localhost:8080
