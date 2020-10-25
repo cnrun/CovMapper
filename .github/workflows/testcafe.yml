@@ -105,48 +105,11 @@ jobs:
     # https://github.com/DevExpress/testcafe/issues/1330 Browser List
     - name: test chrome w10
       run: |
-        yarn run testcafe "browserstack:chrome:Windows 10" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
+        yarn run testcafe -c 1 "browserstack:chrome:Windows 10","browserstack:firefox:Windows 10","browserstack:safari:OS X Catalina","browserstack:ipad:ios" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
       with:
         local-testing: stop
-    - name: 'BrowserStackLocal Setup'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: start
-        local-identifier: random
-    - name: test firefox w10
-      run: |
-        yarn run testcafe "browserstack:firefox:Windows 10" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
-    - name: 'BrowserStackLocal Stop'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: stop
-    - name: 'BrowserStackLocal Setup'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: start
-        local-identifier: random
-    - name: test safari
-      run: |
-        yarn run testcafe "browserstack:safari:OS X Catalina" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
-    - name: 'BrowserStackLocal Stop'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: stop
-    - name: 'BrowserStackLocal Setup'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: start
-        local-identifier: random
-    - name: test ipad
-      run: |
-        yarn run testcafe "browserstack:ipad:ios" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
-    - name: 'BrowserStackLocal Stop'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: stop
-
 #        yarn run testcafe "browserstack:chrome:Windows 10" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
 #        yarn run testcafe "browserstack:safari:OS X Catalina" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
 #        yarn run testcafe "browserstack:ipad:ios" testcafe/*.spec.ts --app "http-server dist/ -p 8080 -s"
