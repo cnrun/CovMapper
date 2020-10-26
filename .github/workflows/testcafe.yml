@@ -66,59 +66,6 @@ jobs:
     - name: test
       run: yarn run testcafe chrome:headless testcafe/*.spec.ts --app "cd ./dist && http-server -p 8080"
 
-  e2e-test-grid:
-    name: "e2e-test-grid"
-    runs-on: ubuntu-latest
-    needs: [build-head]
-    strategy:
-      matrix:
-        browserstack_id: ['chrome:Windows 10', 'firefox:Windows 10','safari:OS X Catalina','Samsung Galaxy S8']
-    steps:
-    - name: run your test
-      run: echo browserstack_id=$browserstack_id
-      env:
-        browserstack_id: ${{ matrix.browserstack_id }}
-    - uses: actions/checkout@v2
-      with:
-        ref: '${{github.event.pull_request.head.ref}}'
-        repository: '${{github.event.pull_request.head.repo.full_name}}'
-    - uses: actions/cache@v2
-      id: yarn-cache
-      with:
-        path: '**/node_modules'
-        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-    - name: install testcafe & browserstack
-      run: yarn add http-server testcafe testcafe-browser-provider-browserstack
-    - name: Install dependencies
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: yarn install
-    - name: Download base artifact
-      uses: actions/download-artifact@v1
-      with:
-        name: dist
-    - name: 'BrowserStack Env Setup'
-      uses: 'browserstack/github-actions/setup-env@master'
-      with:
-        username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-        access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-        build-name: 'covmapperpr${{ github.event.pull_request.number }}'
-        project-name: 'CovMap'
-    - name: 'BrowserStackLocal Setup'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: start
-        local-identifier: random
-    - name: test chrome
-      run: |
-        export BROWSERSTACK_USE_AUTOMATE="1"
-        export BROWSERSTACK_DISPLAY_RESOLUTION="1024x768"
-        yarn run http-server dist/ -p 8080 -s 
-        yarn run testcafe -c 1 "browserstack:${{ matrix.browserstack_id }}" testcafe/*.spec.ts -app "http-server dist/ -p 8080 -s"
-    - name: 'BrowserStackLocal Stop'
-      uses: 'browserstack/github-actions/setup-local@master'
-      with:
-        local-testing: stop
-
   e2e-test-browserstack:
     name: "E2E Tests BrowserStack"
     runs-on: ubuntu-latest
