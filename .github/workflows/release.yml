@@ -80,6 +80,6 @@ jobs:
         with:
           name: dist
       - name: Deploy static site to covmapper.com
-        run: aws s3 sync ./dist/ s3://covmapper-webinterface --delete
-      - name: Deploy static site to covmap.de
-        run: aws s3 sync ./dist/ s3://covmap-production --delete
+        run: aws s3 sync ./dist/ s3://covmapper-webinterface-el --delete
+#      - name: Deploy static site to covmap.de
+#        run: aws s3 sync ./dist/ s3://covmap-production --delete
