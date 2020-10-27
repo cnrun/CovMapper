@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   logo_container: {},
   logo_small: {
     "textAlign": "center",
-    "width": "40px",
+    "width": "80px",
     "height": "auto",
     "display": "block",
     "margin": "auto",
@@ -77,7 +77,12 @@ export const Credits = () => {
             NET CHECK: PD. Dr. Sten Rüdiger <br />
             Datenanalyse GPS-Daten, Kontakt-Index
           </Typography>
-          <Typography variant="h2">Wir danken den Unternehmen:</Typography>
+            <Typography variant="h2"><br />
+            Die CovMap App wurde mit der Unterstützung von zahlreichen Personen und Unternehmen entwickelt. Wir möchten
+            an dieser Stelle unseren großen Dank aussprechen.
+              <br />
+          </Typography>
+          <Typography variant="body1">Wir danken den Unternehmen:</Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={3} className={classes.logo_container}>
               <img className={classes.logo_small} src="images/credits/portbluesky.png"></img>
@@ -103,7 +108,7 @@ export const Credits = () => {
           </Grid>
         </section>
         <section>
-          <Typography variant="h2">
+          <Typography variant="body1">
             Ganz besonders möchten wir folgenden Personen danken:
             <br />
           </Typography>
