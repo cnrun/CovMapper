@@ -4,6 +4,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Box } from "@material-ui
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { makeStyles } from "@material-ui/core/styles";
 import { RiskBadge } from "../RiskBadge";
+import { NavigationTitle } from "app-config/components/NavigationTitle";
 
 const useStyles = makeStyles(() => ({
   textBlock: {
@@ -53,7 +54,7 @@ export const Faq: React.FC = () => {
   return (
     <main className="sections">
       <section>
-        <Typography variant="h1">Fragen und Antworten zu CovMap!</Typography>
+        <NavigationTitle title={"Fragen und Antworten zu CovMap!"} />
       </section>
 
       <section>
@@ -72,7 +73,7 @@ export const Faq: React.FC = () => {
                   <ul style={{ listStyle: "inside" }}>
                     <li>Wie hoch ist das regionale Risiko?</li>
                     <li>Wie kann ich mich schützen?</li>
-                    <li>Was sind die in meinem Landkreis aktuell geltenden Verhaltensregeln?</li>
+                    <li>Welche Verhaltensregeln gelten im Landkreis?</li>
                   </ul>
                 </div>
                 <div className={classes.textBlock}>
@@ -88,6 +89,10 @@ export const Faq: React.FC = () => {
           title="Wie kann ich die CovMap erreichen?"
           content="Die CovMap ist als WebApp über www.covmap.de und covmap.charite.de und als Android App über den Play Store
             (bald verfügbar) erreichbar."
+        />
+        <FaqAccordion
+          title="Was macht die CovMap besonders?"
+          content="Die CovMap wertet zur regionalen Risikobestimmung neben den offiziellen Fallzahlstatistiken des Robert-Koch-Institus große Datenmengen an GPS-Daten und an Symptomen aus. Diese Daten erlauben uns, mit Hilfe eines Modells einen Blick in die Zukunft des Infektionsgeschehens in Deutschland zu werfen und so Risikogebiete schnell zu identifizieren."
         />
 
         <FaqAccordion
@@ -123,6 +128,10 @@ export const Faq: React.FC = () => {
               </Typography>
             </Box>
           }
+        />
+        <FaqAccordion
+          title="Welche Konsequenzen ergeben sich aus der Risikoeinschätzung?"
+          content="Wir möchten mit diesem Projekt zu einer freiwilligen Reduktion von Kontakten aufrufen, insbesondere in Gebieten mit mittlerem und hohem Risiko. Falls sich Kontakte nicht vermeiden lassen, findest Du auf unserer Seite Informationen über allgemeine Schutzmaßnahmen, mit denen sich das Übertragungsrisiko verringern lässt. Zusätzlich verlinken wir zu den Webseiten der Landkreise, so dass Du Dich über die aktuellen und offiziellen Verhaltensregeln in Deiner Region informieren kannst."
         />
         <FaqAccordion
           title="Wie aktuell ist die CovMap?"
