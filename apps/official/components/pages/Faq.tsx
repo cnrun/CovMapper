@@ -90,14 +90,14 @@ export const Faq: React.FC = () => {
             Die CovMap wertet zur regionalen Risikobestimmung neben den offiziellen Fallzahlstatistiken des
             Robert-Koch-Instituts große Sätze an GPS- und Symptom-Daten aus. Diese Daten entstammen aus anderen Apps,
             bei denen die Nutzer der Auswertung ihrer GPS Daten zugestimmt haben. Diese Daten sind die Basis für ein von
-            uns entwickeltes Modell, welches den Kontaktindex berechnet. Zudem werden aktuelle Symptome abgefragt,
-            ausgewertet und fließen zusätzlich in die Risikoeinschätzung mit ein (bald verfügbar). Der Kontaktindex und
-            die Symptome spiegeln frühzeitig das Infektionsgeschehen wider und ermöglichen so eine zeitnahe Anpassung
-            von Maßnahmen. Im Gegensatz dazu sind die Zahlen der Neuinfektionen, die vom Robert-Koch-Institut
-            veröffentlicht werden, der Stand der Neuinfektionen von vor circa einer Woche. Dieser Verzug kommt dadurch
-            Zustande, dass eine Person, die neu mit dem Virus infiziert wurde, nach wenigen Tagen Symptome entwickelt
-            (es gibt auch symptomlose Verläufe), sich erst dann testen lässt, der Test Zeit benötigt und auch die
-            Meldung an das Gesundeitsamt Zeit in Anspruch nimmt.
+            uns entwickeltes Modell, welches den Kontakt-Index berechnet. Zudem werden aktuelle Symptome abgefragt,
+            ausgewertet und fließen zusätzlich in die Risikoeinschätzung mit ein (bald verfügbar). Der Kontakt-Index und
+            die Symptome spiegeln frühzeitig das Infektionsgeschehen wider und ermöglichen so eine zeitnahe Anpassung.
+            Im Gegensatz dazu sind die Zahlen der Neuinfektionen, die vom Robert-Koch-Institut veröffentlicht werden,
+            der Stand der Neuinfektionen von vor circa einer Woche. Dieser Verzug kommt dadurch Zustande, dass eine
+            Person, die neu mit dem Virus infiziert wurde, nach wenigen Tagen Symptome entwickelt (es gibt auch
+            symptomlose Verläufe), sich erst dann testen lässt, der Test Zeit benötigt und auch die Meldung an das
+            Gesundeitsamt Zeit in Anspruch nimmt.
           </Typography>
         </FaqAccordion>
 
@@ -248,14 +248,16 @@ export const Faq: React.FC = () => {
 
         <FaqAccordion title="Was ist der Kontakt-Index?">
           <Typography style={{ width: "100%" }}>
-            Der Kontakt-Index wurde von unserer Gruppe entwickelt und in einer wissenschaftlichen Arbeit beschrieben.
-            Grundlegend ist die Beobachtung, dass nicht jede Person die gleiche Zahl von Kontakten pro Tag hat sondern
-            dass es dabei eine sehr breite Verteilung gibt. Da Personen mit sehr vielen Kontakten („Superkontakter“)
-            eine höhere Wahrscheinlichkeit haben, das Coronavirus weiterzugeben, spielt diese Beobachtung eine Rolle für
-            die Ausbreitung (Freundschaftsparadox). Anders gesagt, ist nicht nur die reine Zahl an Kontakten für den
-            R-Wert entscheidend, sondern auch die Heterogenität der Kontaktzahlen. Der Kontakt-Index zeigt nun sowohl
-            die Gesamtzahl der Kontakte als auch die Heterogenität an. Wir konnten zeigen, dass tatsächlich der
-            Kontakt-Index maßgebend für die Ausbreitung des Coronavirus in Deutschland ist.
+            Der Kontakt-Index wurde von unserer Gruppe entwickelt und in einer wissenschaftlichen Arbeit (
+            <a href="https://www.medrxiv.org/content/10.1101/2020.10.02.20188136v2">Preprint</a>) beschrieben.
+            Grundlegend ist die Beobachtung, dass nicht jede Person die gleiche Zahl von Kontakten pro Tag hat, sondern
+            es dabei sehr große Unterschiede gibt. Da Personen mit sehr vielen Kontakten („Superkontakter“) eine höhere
+            Wahrscheinlichkeit haben, das Coronavirus weiterzugeben, spielt diese Beobachtung eine wichtige Rolle für
+            die Ausbreitung des Coronavirus (siehe auch Freundschaftsparadox). Anders gesagt, ist nicht nur die reine
+            Zahl an Kontakten für die Virusausbreitung entscheidend, sondern auch die Unterschiedlichkeit der
+            Kontaktzahlen (Heterogenität). Der Kontakt-Index zeigt nun sowohl die Gesamtzahl der Kontakte als auch die
+            Heterogenität an. Wir konnten zeigen, dass der Kontakt-Index sehr gut mit der Ausbreitung des Coronavirus in
+            Deutschland korrelierte.
           </Typography>
         </FaqAccordion>
 
@@ -263,34 +265,40 @@ export const Faq: React.FC = () => {
           <Typography style={{ width: "100%" }}>
             Das Coronaviurs überträgt sich von Mensch zu Mensch. Es wird hauptsächlich über die sogenannte
             Tröpfcheninfektion und über Aerosole übertragen. Je weniger Kontakte jemand hat, desto schwerer ist es für
-            das Virus sich weiter zu verbreiten.
-            https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Steckbrief.html
+            das Virus, sich weiter zu verbreiten. Weitere Informationen zum Coronavirus findest Du auf der{" "}
+            <a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Steckbrief.html">
+              Webpage des Robert-Koch-Instituts
+            </a>
+            .
           </Typography>
         </FaqAccordion>
 
         <FaqAccordion title="Was kann ich konkret tun, um die Ausbreitung des Coronavirus zu verringern?">
           <Typography style={{ width: "100%" }}>
-            Das Coronaviurs überträgt sich von Mensch zu Mensch, deswegen ist es notwendig, dass wir uns alle an
-            Infektionsschutzmaßnahmen halten und diese umzusetzen. Die AHA + L + A Formel fast die wichtigsten Maßnahmen
-            zusammen: Abstand halten, Hygiene beachten (Händewaschen, in die Ellenbeuge niesen), Alltagsmaske
-            (Mund-Nasen-Bedeckung) tragen und regelmäßiges Lüften sind sehr wichtig. Das weitere A steht für die
-            Corona-Warn-App, welche Nutzerinnen und Nutzer der APP über Kontakte zu infizierten Personen informiert.
-            https://www.bundesregierung.de/breg-de/themen/corona-warn-app
-            https://www.infektionsschutz.de/coronavirus/alltag-in-zeiten-von-corona.html
+            Das Coronaviurs überträgt sich von Mensch zu Mensch, deswegen ist es wichtig, dass wir Kontakte reduzieren
+            und uns zusätzlich an Infektionsschutzmaßnahmen halten und diese umzusetzen. Die{" "}
+            <a href="https://www.infektionsschutz.de/coronavirus/alltag-in-zeiten-von-corona.html">
+              AHA + L + A Formel
+            </a>{" "}
+            fast die wichtigsten Infektionsschutzmaßnahmen zusammen: Abstand halten, Hygiene beachten (Händewaschen, in
+            die Ellenbeuge niesen), Alltagsmaske (Mund-Nasen-Bedeckung) tragen und regelmäßiges Lüften sind sehr
+            wichtig. Das weitere A steht für die
+            <a href="https://www.bundesregierung.de/breg-de/themen/corona-warn-app">Corona-Warn-App</a>, welche
+            Nutzerinnen und Nutzer der App über Kontakte zu infizierten Personen informiert.
           </Typography>
         </FaqAccordion>
 
         <FaqAccordion title="Was ist das Freundschaftsparadox?">
           <Typography style={{ width: "100%" }}>
-            Der Kontakt-Index ist anschaulich mit dem sogenannten Freundschaftsparadox verbunden
-            (https://de.wikipedia.org/wiki/Freundschaftsparadox). Danach gilt für die meisten Menschen - z.B. in
-            Facebook - dass ihre Freunde im Durchschnitt mehr Freunde haben als sie selbst. Das wiederum liegt daran,
-            dass Personen mit vielen Freunden eine höhere Wahrscheinlichkeit haben, mit einer beliebigen Person X
-            verbunden zu sein, als Personen, die wenige Freunde haben. Daher sind vereinfacht gesagt viele Freunde oder
-            Kontakte von X Superkontakter. Diese Beobachtung macht sich auch in der Ausbreitung von
-            Infektionskrankheiten bemerkbar. D.h. wenn ich jemanden anstecke, wird diese Person wahrscheinlich jemand
-            mit vielen Kontakten sein. Also wird im Mittel nicht die mittlere Zahl der Kontakte angesteckt, sondern mehr
-            als diese Zahl. Der Kontakt-Index übernimmt diese Abweichung.
+            Der Kontakt-Index ist anschaulich mit dem sogenannten{" "}
+            <a href="https://de.wikipedia.org/wiki/Freundschaftsparadox">Freundschaftsparadox</a> verbunden. Danach gilt
+            für die meisten Menschen - z.B. in Facebook - dass ihre Freunde im Durchschnitt mehr Freunde haben als sie
+            selbst. Das wiederum liegt daran, dass Personen mit vielen Freunden eine höhere Wahrscheinlichkeit haben,
+            mit einer beliebigen Person X verbunden zu sein, als Personen, die wenige Freunde haben. Daher sind
+            vereinfacht gesagt viele Freunde oder Kontakte von X Superkontakter. Diese Beobachtung macht sich auch in
+            der Ausbreitung von Infektionskrankheiten bemerkbar. D.h. wenn ich jemanden anstecke, wird diese Person
+            wahrscheinlich jemand mit vielen Kontakten sein. Also wird im Mittel nicht die mittlere Zahl der Kontakte
+            angesteckt, sondern mehr als diese Zahl. Der Kontakt-Index übernimmt diese Abweichung.
           </Typography>
         </FaqAccordion>
       </section>
