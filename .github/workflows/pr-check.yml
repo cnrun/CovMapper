@@ -114,7 +114,7 @@ jobs:
         yarn run testcafe -c 1 "browserstack:chrome:Windows 10" testcafe/*.spec.ts
         yarn run testcafe -c 1 "browserstack:firefox:Windows 10" testcafe/*.spec.ts
         yarn run testcafe -c 1 "browserstack:safari:OS X Catalina" testcafe/*.spec.ts --skip-js-errors
-        yarn run testcafe -c 1 "browserstack:Samsung Galaxy S8" testcafe/*.spec.ts
+        yarn run testcafe -c 1 "browserstack:edge:Windows 10" testcafe/*.spec.ts --skip-js-errors
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
       with:
