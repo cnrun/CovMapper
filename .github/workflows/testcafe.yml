@@ -111,7 +111,7 @@ jobs:
         yarn run http-server dist/ -p 8080 -s &
         sleep 5
         curl http://localhost:8080
-        yarn run testcafe -c 1 "browserstack:edge:Windows 10" testcafe/*.spec.ts --skip-js-errors
+        yarn run testcafe -c 1 "browserstack:edge:Windows 10" testcafe/*.spec.ts
     - name: 'BrowserStackLocal Stop'
       uses: 'browserstack/github-actions/setup-local@master'
       with:
